@@ -24,7 +24,7 @@ function startCombat(play, userName, grantName) {
 
     if (play === 'yes') {
         while (play === 'yes') {
-            let userChoice = "attack" // prompt("Would you like to attack or flee? Enter 'attack' or 'flee'");
+            let userChoice = prompt("Would you like to attack or flee? Enter 'attack' or 'flee'");
             if (userChoice === "attack") {
                 userHealth -= getDamage();
                 grantHealth -= getDamage();
@@ -56,9 +56,8 @@ function getDamage() {
     return Math.floor(Math.random()*5+1);
 }
 
-// const GetHealth = () => {
-//     userHealth += Math.floor(Math.random()*10+1);
-//     grantHealth += Math.floor(Math.random()*10+1);
-// }
+const GetHealth = () => {
+    return Math.floor(Math.random()*10+1);
+}
 
 startGame();
