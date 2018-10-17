@@ -21,19 +21,30 @@ function startCombat(play, userName, grantName) {
     let userWins = 0;
     let grantHealth = 10;
     let userHealth = 40;
+    let userHeals = 3;
 
     if (play === 'yes') {
         while (play === 'yes') {
-            let userChoice = prompt("Would you like to attack or flee? Enter 'attack' or 'flee'");
+            let userChoice = prompt("Would you like to attack or flee? Enter 'attack', 'flee', or 'heal'");
             if (userChoice === "attack") {
                 userHealth -= getDamage();
                 grantHealth -= getDamage();
                 console.log(`${grantName} has ${3 - userWins} lives left`);
                 console.log(`${userName} has ${userHealth} health left.`);
                 console.log(`${grantName} has ${grantHealth} health left.`);   
-            } else if (userChoice = "flee") {
+            } else if (userChoice === "flee") {
                 console.log(`${userName} is cowardly and flees. ${userName} had ${userHealth} HP remaining.`);
                 break;
+            } else if (userChoice === "heal") {
+                if (userHeals <=0){
+                    console.log("no heals left")
+                } else if (userHeals > 0) {
+                    userHealth += GetHealth();
+                    userHealth -= getDamage();
+                    console.log(`${grantName} has ${3 - userWins} lives left`);
+                    console.log(`${userName} has ${userHealth} health left.`);
+                    console.log(`${grantName} has ${grantHealth} health left.`);  
+                }
             }
 
 
@@ -58,6 +69,7 @@ function getDamage() {
 
 const GetHealth = () => {
     return Math.floor(Math.random()*10+1);
+
 }
 
 startGame();
